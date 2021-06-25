@@ -16,26 +16,7 @@
 <body>
     <div id="root"></div>
 
-    <script type="text/babel">
-        // Obtain the root 
-        const rootElement = document.getElementById('root');
-
-        // Create a function to wrap up your component
-        function App(){
-            return(
-                <div>
-                    <p>Hello</p>
-                </div>
-            )
-        }
-
-        // Use the ReactDOM.render to show your component on the browser
-        ReactDOM.render(
-            <App />,
-            rootElement
-        );
-
-    </script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="./src/App.js"></script>
 </body>
 
 </html>
