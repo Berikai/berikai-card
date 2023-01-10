@@ -1,15 +1,13 @@
-function Header() {
+export default function Header() {
     return (
-        <div className="App-header">
+        <header className="App-header">
             <p><a href="https://github.com/Berikai">
-                <img 
+            <img 
                 className="pp_logo" 
                 src="https://avatars.githubusercontent.com/u/18515671?v=4" 
-                alt="Berikai Profile Picture" />
+                alt="Berikai" />
             </a></p>
             <div className="username">Berikai<div className="aka">also known as Verdant</div></div>
-        </div>
+        </header>
     )
-  }
-  
-export default Header;
+}
