@@ -1,3 +1,5 @@
+import React from 'preact/compat';
+
 export default function About() {
     return (
         <div className="App-about">

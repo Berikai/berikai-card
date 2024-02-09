@@ -1,15 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(251, 250, 255);
+  background-color: rgb(10, 0, 46);
 }
 
 .App {
   padding-top: 8vh;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-bottom: 8vh;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('https://raw.githubusercontent.com/Berikai/dotfiles/master/backgrounds/backgrounds/2023-02-12-13-50-26-2F1552.webp');
+}
+
+.Card {
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  margin: auto;
+  border: #2b2b2b solid 4px;
+  border-radius: 50px;
+  width: fit-content; 
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .App-header {
@@ -26,10 +51,10 @@ body {
 
 .App-footer {
   padding-top: 15px;
-  margin: auto;   
-  text-align: center;  
+  margin: auto;
+  text-align: center;
+  width: fit-content;  
   bottom: 0px; 
-  width: 100%;
 }
 
 .pp_logo {
@@ -37,7 +62,7 @@ body {
   border-radius: 100%;
   border-style: solid;
   border-width: 3px;
-  border-color: aquamarine;
+  border-color: #000000;
 }
 
 .username {
@@ -52,6 +77,11 @@ body {
   color:rgb(150, 150, 150);
   font-size: 16px;
   font-weight: bold;
+}
+
+.soundcloud {
+  border-radius: 15px;
+  border: #797979 dotted 2px;
 }
 
 .text-info {
