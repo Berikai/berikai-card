@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "homepage": "https://berikai.github.io/",
   "private": true,
+  "type": "module",
   "dependencies": {
     "preact": "^10.19.3",
     "vite": "^5.0.12"
