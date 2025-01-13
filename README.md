@@ -6,6 +6,6 @@ It's a simple website project that contains a self introduction card. The projec
 
 - Deploy the build to GH Pages: `npm run deploy`
 - Run locally: `npm start`
-- Build to production: `npm build`
+- Build to production: `npm run build`
 
 ![card](image.png)
