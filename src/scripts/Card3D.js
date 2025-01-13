@@ -1,7 +1,9 @@
-const cardFollowCursor3D = (card, switchbox) => (e) => {
+const cardFollowCursor3D = (card, switchbox, slider) => (e) => {
     const angleX = (window.innerWidth / 2 - e.pageX) / 10;
     const angleY = (window.innerHeight / 2 - e.pageY) / 20;
     const angleZ = 0;
+
+    slider.style.cursor = "pointer";
 
     if (angleX > 0 && angleY > 0) 
         switchbox.style.opacity = "1";
@@ -15,7 +17,6 @@ const cardFollowCursor3D = (card, switchbox) => (e) => {
 }
 
 const cardResetState3D = (card, switchbox) => (e) => {
-
     switchbox.style.opacity = "0";
     
     card.style.transition = `transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease`;
@@ -26,7 +27,8 @@ const cardResetState3D = (card, switchbox) => (e) => {
 export const Card3D = () => {
     const card = document.querySelector(".Card");
     const switchbox = document.getElementById("switch");
+    const slider = document.querySelector(".slider");
 
-    card.addEventListener("mousemove", cardFollowCursor3D(card, switchbox), false);
+    card.addEventListener("mousemove", cardFollowCursor3D(card, switchbox, slider), false);
     card.addEventListener("mouseout", cardResetState3D(card, switchbox), false);
 }
