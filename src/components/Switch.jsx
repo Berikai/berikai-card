@@ -24,7 +24,6 @@ const setDarkMode = (darkMode) => {
 }
 
 export default function Switch() {
-
     useLayoutEffect(() => {
         const checkbox = document.getElementById("mode_switch");
 
@@ -33,15 +32,17 @@ export default function Switch() {
             setDarkMode(true);
         }
 
-        checkbox.addEventListener("change", (e) => {
-            if (e.target.checked) {
-                setDarkMode(true);
-                localStorage.setItem("mode", "dark");
-            } else {
-                setDarkMode(false);
-                localStorage.setItem("mode", "light");
-            }
-        });
+        setTimeout(() => {
+            checkbox.addEventListener("change", (e) => {
+                if (e.target.checked) {
+                    localStorage.setItem("mode", "dark");
+                    setDarkMode(true);
+                } else {
+                    localStorage.setItem("mode", "light");
+                    setDarkMode(false);
+                }
+            });
+        }, 2000);
     }, []);
 
     return (
