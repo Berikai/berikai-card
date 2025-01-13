@@ -3,8 +3,8 @@ import React from 'preact/compat';
 export default function Header() {
     return (
         <header className="App-header">
-            <p><a href="https://github.com/Berikai">
-            <img 
+            <p><a>
+            <img
                 className="pp_logo" 
                 src="https://avatars.githubusercontent.com/u/18515671?v=4" 
                 alt="Berikai" />
