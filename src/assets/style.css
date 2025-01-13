@@ -19,12 +19,17 @@ heart {
   display: inline-block;
   font-size: 12px;
   transition: 0.5s;
-  cursor: grab;
+  cursor: pointer;
 }
 
 heart:hover {
   font-size: 50px;
   margin-inline: 15px;
+}
+
+heart:active {
+  font-size: 70px;
+  transition: 0.3s;
 }
 
 .App {
@@ -82,15 +87,26 @@ heart:hover {
   bottom: 0px; 
 }
 
+@keyframes ProfileFrame {
+  0% {border-radius: 70px 15px 70px 15px;box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px;}
+  20% {border-radius: 70px 15px 70px 15px;box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px;}
+  50% {border-radius: 70px 15px 70px 15px;box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 15px;}
+  75% {border-radius: 70px 15px 70px 15px;}
+  100% {}
+}
+
 .pp_logo {
   width: 200px;
-  border-radius: 100%;
+  border-radius: 15px 70px 15px 70px;
   border-width: 3px;
   box-shadow: #000000 0px 0px 10px;
   transition: ease 0.2s;
+  cursor: pointer;
+  animation: ProfileFrame 2s ease-in-out;
 }
 
 .pp_logo:hover {
+  border-radius: 15px 70px 15px 70px;
   box-shadow: #000000 0px 0px 15px;
   scale: 1.05;
 }
@@ -175,7 +191,7 @@ heart:hover {
 
 .slider {
   position: absolute;
-  cursor: pointer;
+  cursor: default;
   top: 0;
   left: 0;
   right: 0;
