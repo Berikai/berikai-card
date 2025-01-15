@@ -9,7 +9,7 @@
     "vite": "^5.0.12"
   },
   "scripts": {
-    "deploy": "gh-pages -d dist --cname card.berikai.dev",
+    "deploy": "gh-pages -d dist --cname berikai.dev",
     "start": "npx vite --host",
     "build": "npx vite build"
   },
