@@ -11,7 +11,7 @@ export default function About() {
                 I'm a big fan of open source and I love learning new things about software technologies. ...and "I use Arch, btw." 😄
             </p>
             <p className="text-about">
-                I create dubstep and drum and bass oriented experimental music under the alias <b>Verdant</b>. You can check out my music on <a href="https://soundcloud.com/verdantbass" target="_blank" rel="noreferrer">Soundcloud</a>.
+                I create dubstep and drum and bass oriented experimental music. You can check out my music on <a href="https://soundcloud.com/verdantbass" target="_blank" rel="noreferrer">Soundcloud</a>.
             </p>
             <p className="text-about">
                 I'm currently studying mechatronics engineering (sophomore) in <i>Izmir University of Economics</i>.
