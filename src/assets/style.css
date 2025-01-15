@@ -40,12 +40,12 @@ heart:active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 8vh;
-  padding-bottom: 8vh;
+  width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   perspective: 800px;
+
 }
 
 @keyframes CardFrame {
@@ -57,6 +57,8 @@ heart:active {
 }
 
 .Card {
+  display: flex;
+  flex-direction: column;
   position: relative;
   user-select: none;
   padding-left: 40px;
@@ -378,3 +380,66 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 } 
+
+@media screen and (max-width: 678px) {
+  .App.about-open {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    transition: 0.2s ease;
+  }
+
+  .App-about-extra.about-open {
+    position:relative;
+    top: 40px;
+    left: -220px;
+  }
+
+  .Card.about-open {
+    margin-bottom: 250px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navbar.about-open {
+    margin-top: 60px;
+    margin-bottom: 250px;
+  }
+
+  .pp_logo.about-open {
+    transition:none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .switch.about-open {
+    top: 5px;
+    left: 5px;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+    transform-origin: 8px;
+  }
+}
+
+@media screen and (max-height: 610px) {
+  .App {
+    transform: scale(0.7) translate(0, -50px)  !important;
+    transition: scale 0.2 ease;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App.about-open {
+    transform: translate(-px, 0);
+  }
+}

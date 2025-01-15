@@ -13,10 +13,19 @@ const showAboutPage = () => {
     const appAbout = document.querySelector(".App-about");
     const appFooter = document.querySelector(".App-footer");
     const appAboutExtra = document.querySelector(".App-about-extra");
+    const navbar = document.querySelector(".navbar");
+    const app = document.querySelector(".App");
 
     const upperButtons = document.querySelectorAll(".rotate-counterclockwise");
 
     cardStyle.rotation = -90;
+
+    app.classList.add("about-open");
+    appAboutExtra.classList.add("about-open");
+    navbar.classList.add("about-open");
+    card.classList.add("about-open");
+    pp.classList.add("about-open");
+    switchbox.classList.add("about-open");
 
     card.style.transform = "rotateZ(-90deg)";
     pp.style.borderRadius = "70px 15px 70px 15px";
@@ -49,6 +58,8 @@ const showAboutPage = () => {
     appFooter.style.opacity = "0";
     appAboutExtra.style.opacity = "1";
     appAboutExtra.style.transform = "rotate(0deg)";
+    appAboutExtra.style.pointerEvents = "all";
+
 }
 
 const hideAboutPage = () => {
@@ -60,10 +71,19 @@ const hideAboutPage = () => {
     const appAbout = document.querySelector(".App-about");
     const appFooter = document.querySelector(".App-footer");
     const appAboutExtra = document.querySelector(".App-about-extra");
+    const navbar = document.querySelector(".navbar");
+    const app = document.querySelector(".App");
 
     const upperButtons = document.querySelectorAll(".rotated-about");
 
     cardStyle.rotation = 0;
+
+    app.classList.remove("about-open");
+    appAboutExtra.classList.remove("about-open");
+    navbar.classList.remove("about-open");
+    card.classList.remove("about-open");
+    pp.classList.remove("about-open");
+    switchbox.classList.remove("about-open");
 
     card.style.transform = "rotateZ(0deg)";
     pp.style.borderRadius = "15px 70px 15px 70px";
@@ -96,6 +116,7 @@ const hideAboutPage = () => {
     appFooter.style.opacity = "1";
     appAboutExtra.style.opacity = "0";
     appAboutExtra.style.transform = "rotate(-90deg)";
+    appAboutExtra.style.pointerEvents = "none";
 }
 
 export const AboutPage = () => {
