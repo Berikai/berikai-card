@@ -102,10 +102,10 @@ heart:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 300px;
+  top: 315px;
   left: 75px;
   width: 250px;
-  height: 330px;
+  height: 300px;
   /*border: #000000 dotted 2px;*/
   font-size: 12px;
   writing-mode: vertical-rl;
@@ -154,24 +154,27 @@ heart:active {
 .text-about {
   margin: 0px 0px 0px 10px;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
   transition: ease 0.2s;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .username {
   margin: 10px;
-  font-size: 38px;
+  font-size: 36px;
   font-weight: normal;
   text-align: center;
   padding: 5px;
   transition: ease 0.2s;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .aka {
   color:rgb(150, 150, 150);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .soundcloud {
@@ -182,6 +185,8 @@ heart:active {
 .text-info {
   text-align: center;
   font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 
 .socials {
@@ -192,6 +197,8 @@ heart:active {
 .ul-padding {
   padding-top: 5px;
   padding-top: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
 }
 
 .padding-inline {
@@ -394,7 +401,7 @@ input:checked + .slider:before {
   .App-about-extra.about-open {
     position:relative;
     top: 40px;
-    left: -220px;
+    left: -230px;
   }
 
   .Card.about-open {
@@ -431,6 +438,13 @@ input:checked + .slider:before {
   }
 }
 
+@media screen and (max-height: 700px) {
+  .App {
+    transform: scale(0.85) translate(0, 0px)  !important;
+    transition: scale 0.2 ease;
+  }
+}
+
 @media screen and (max-height: 610px) {
   .App {
     transform: scale(0.7) translate(0, -50px)  !important;
@@ -441,5 +455,13 @@ input:checked + .slider:before {
 @media screen and (max-width: 480px) {
   .App.about-open {
     transform: translate(-px, 0);
+  }
+
+  .App-about-extra {
+    position: relative;
+    top: 315px;
+    left: 75px;
+    width: 250px;
+    height: 330px;
   }
 }
