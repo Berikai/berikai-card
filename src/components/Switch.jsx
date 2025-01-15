@@ -1,7 +1,7 @@
-import React, { useState, useLayoutEffect } from 'preact/compat';
+import React, { useLayoutEffect } from 'preact/compat';
 
 const setDarkMode = (darkMode) => {
-    const card = document.querySelector(".Card");
+    const card = document.getElementById("Card");
     const darks = document.querySelectorAll(".dark");
 
     if (darkMode) {
@@ -27,7 +27,7 @@ export default function Switch() {
     useLayoutEffect(() => {
         const checkbox = document.getElementById("mode_switch");
 
-        if (localStorage.getItem("mode") === "dark") { 
+        if (localStorage.getItem("themeMode") === "dark") { 
             checkbox.checked = true;
             setDarkMode(true);
         }
@@ -35,10 +35,10 @@ export default function Switch() {
         setTimeout(() => {
             checkbox.addEventListener("change", (e) => {
                 if (e.target.checked) {
-                    localStorage.setItem("mode", "dark");
+                    localStorage.setItem("themeMode", "dark");
                     setDarkMode(true);
                 } else {
-                    localStorage.setItem("mode", "light");
+                    localStorage.setItem("themeMode", "light");
                     setDarkMode(false);
                 }
             });
@@ -47,7 +47,7 @@ export default function Switch() {
 
     return (
         <div className="switch">
-            <label id="switch" className="switch" style={`opacity: 0; transition: 0.4s;`}>
+            <label id="switch" className="switch" style={`opacity: 0; transition: 0.4s, transform 0.2s;`}>
                 <input id="mode_switch" type="checkbox" />
                 <span className="slider round"></span>
             </label>

@@ -3,11 +3,11 @@ import React from 'preact/compat';
 export default function About() {
     return (
         <div className="App-about">
-            <p className="text-info">I love software tech and bass music.</p>
+            <p className="text-info">I love software tech and bass music</p>
             <ul className="ul-padding">
                 <li className="li-element">🇹🇷 &nbsp; İzmir, Turkey </li>
-                <li className="li-element">🖥️ &nbsp; Javascript Enthusiast</li>
-                <li className="li-element">🎵 &nbsp; Dubstep, Drum 'n Bass, Experimental...</li>
+                <li className="li-element">🖥️ &nbsp; Software Enthusiast</li>
+                <li className="li-element">🎵 &nbsp; Dubstep, Drum 'n Bass, Experimental</li>
             </ul>
             <p className="socials" align="left">
                 <a className="padding-inline" href="https://soundcloud.com/verdantbass" target="_blank" rel="noreferrer"><img src="https://www.svgrepo.com/show/35013/soundcloud.svg" width="24" height="24" alt="Soundcloud"/></a>
