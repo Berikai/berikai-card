@@ -2,7 +2,7 @@ import React from 'preact/compat';
 
 export default function About() {
     return (
-        <div className="App-about-extra" style={"opacity: 0; transform: rotate(-90deg);transition: transform 0.1s;"}>
+        <div className="App-about-extra" style={"opacity: 0;transition: transform 0.1s;"}>
             <p className="title-about">About Me</p>
             <p className="text-about">
                 My name is Berkay Eren Konuk, but I usually go by the names <b>Berikai</b> or <b>Verdant</b> online.

@@ -57,7 +57,6 @@ const showAboutPage = () => {
     appAbout.style.pointerEvents = "none";
     appFooter.style.opacity = "0";
     appAboutExtra.style.opacity = "1";
-    appAboutExtra.style.transform = "rotate(0deg)";
     appAboutExtra.style.pointerEvents = "all";
 
 }
@@ -115,7 +114,6 @@ const hideAboutPage = () => {
     appAbout.style.pointerEvents = "all";
     appFooter.style.opacity = "1";
     appAboutExtra.style.opacity = "0";
-    appAboutExtra.style.transform = "rotate(-90deg)";
     appAboutExtra.style.pointerEvents = "none";
 }
 
