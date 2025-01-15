@@ -453,12 +453,7 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 480px) {
-  .App.about-open {
-    transform: translate(-px, 0);
-  }
-
   .App-about-extra {
-    position: relative;
     top: 315px;
     left: 75px;
     width: 250px;
