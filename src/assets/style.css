@@ -60,6 +60,7 @@ heart:active {
   display: flex;
   flex-direction: column;
   position: relative;
+  min-width: 400px;
   user-select: none;
   padding-left: 40px;
   padding-right: 40px;
@@ -146,7 +147,7 @@ heart:active {
   font-size: 28px;
   font-weight: normal;
   text-align: center;
-  transition: ease 0.2s;
+  transition: ease 0.1s;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -155,8 +156,28 @@ heart:active {
   font-weight: normal;
   font-size: 13px;
   text-align: center;
-  transition: ease 0.2s;
+  transition: ease 0.1s;
   font-family: 'Montserrat', sans-serif;
+}
+
+#pp {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.threeD-info {
+  position: absolute;
+  margin: auto;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  transition: ease 0.2s;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Montserrat', sans-serif;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .username {
@@ -165,7 +186,7 @@ heart:active {
   font-weight: normal;
   text-align: center;
   padding: 5px;
-  transition: ease 0.2s;
+  transition: ease 0.1s;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -251,6 +272,12 @@ heart:active {
   margin-bottom: 250px;
 }
 
+.icon-nav {
+  position: absolute;
+  left: 12px;
+  bottom: 14px;
+}
+
 .navbar-half1 {
   display: flex;
   flex-direction: column;
@@ -269,6 +296,7 @@ heart:active {
 }
 
 .nav-button {
+  position: relative;
   display: flex;
   padding: 18px;
   width: 28px;
@@ -299,6 +327,20 @@ heart:active {
 .rotate-counterclockwise {
   display: inline-block;
   writing-mode: sideways-lr;
+}
+
+@supports not (writing-mode: sideways-rl) {
+  .rotate-clockwise {
+    display: inline-block;
+    writing-mode: vertical-rl;
+  }
+}
+
+@supports not (writing-mode: sideways-lr) {
+  .rotate-counterclockwise {
+    display: inline-block;
+    writing-mode: vertical-lr;
+  }
 }
 
 .modal {
@@ -452,6 +494,10 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-width: 480px) {
+  .App {
+    transform: scale(0.7) translate(0, -50px)  !important;
+    transition: scale 0.2 ease;
+  }
   .App-about-extra {
     top: 315px;
     left: 75px;
