@@ -6,8 +6,32 @@ export default function Header() {
 
     
     useLayoutEffect(() => {
+        const pp = document.getElementById("pp");
+        const text3d = document.querySelector(".threeD-info");
+        pp.addEventListener("mouseleave" , () => {
+            text3d.style.opacity = "0";
+            text3d.style.scale = "1.0";
+        });
+
+        pp.addEventListener("mouseenter" , () => {
+            text3d.style.opacity = "1";
+            text3d.style.scale = "1.05";
+        });
+
+        pp.addEventListener("mousedown" , (e) => {
+            text3d.style.opacity = "1";
+            text3d.style.scale = "1.1";
+            text3d.style.display = "none";
+        });
+
+        pp.addEventListener("mouseup" , (e) => {
+            text3d.style.opacity = "1";
+            text3d.style.scale = "1.05";
+        });
+
         if(localStorage.getItem("mode3D") === "true") {
             setMode3D(true);
+            text3d.style.display = "none";
             setTimeout(() => {
                 Card3D();
                 document.getElementById("pp").style.pointerEvents = "auto";
@@ -27,6 +51,7 @@ export default function Header() {
                 className="pp_logo" 
                 src="https://avatars.githubusercontent.com/u/18515671?v=4" 
                 alt="Berikai" />
+                <p className="threeD-info">Tap to switch 3D</p>
             </a></p>
             <div className="username">Berikai<div className="aka">also known as Verdant</div></div>
         </header>

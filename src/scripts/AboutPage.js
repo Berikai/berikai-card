@@ -15,7 +15,9 @@ const showAboutPage = () => {
     const appAboutExtra = document.querySelector(".App-about-extra");
     const navbar = document.querySelector(".navbar");
     const app = document.querySelector(".App");
+    const threeDInfo = document.querySelector(".threeD-info");
 
+    const navIcons = document.querySelectorAll(".icon-nav");
     const upperButtons = document.querySelectorAll(".rotate-counterclockwise");
 
     cardStyle.rotation = -90;
@@ -27,10 +29,16 @@ const showAboutPage = () => {
     pp.classList.add("about-open");
     switchbox.classList.add("about-open");
 
+    card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
     card.style.transform = "rotateZ(-90deg)";
     pp.style.borderRadius = "70px 15px 70px 15px";
     pp.style.transform = "rotateZ(90deg)";
     switchbox.style.transform = "rotateZ(90deg)";
+    threeDInfo.style.transform = "rotateZ(90deg)";
+
+    for(let icon of navIcons) {
+        icon.style.transform = "rotateZ(90deg)";
+    }
 
     aboutNav.style.backgroundColor = "#FF000099";
     aboutNav.style.color = "#EEE";
@@ -72,7 +80,9 @@ const hideAboutPage = () => {
     const appAboutExtra = document.querySelector(".App-about-extra");
     const navbar = document.querySelector(".navbar");
     const app = document.querySelector(".App");
+    const threeDInfo = document.querySelector(".threeD-info");
 
+    const navIcons = document.querySelectorAll(".icon-nav");
     const upperButtons = document.querySelectorAll(".rotated-about");
 
     cardStyle.rotation = 0;
@@ -84,10 +94,16 @@ const hideAboutPage = () => {
     pp.classList.remove("about-open");
     switchbox.classList.remove("about-open");
 
+    card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
     card.style.transform = "rotateZ(0deg)";
     pp.style.borderRadius = "15px 70px 15px 70px";
     pp.style.transform = "rotateZ(0deg)";
     switchbox.style.transform = "rotateZ(0deg)";
+    threeDInfo.style.transform = "rotateZ(0deg)";
+
+    for(let icon of navIcons) {
+        icon.style.transform = "rotateZ(0deg)";
+    }
 
     aboutNav.style.backgroundColor = "#00000008";
     aboutNav.style.color = "rgb(0, 0,0, 0.2)";
