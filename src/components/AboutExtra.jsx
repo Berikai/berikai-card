@@ -16,9 +16,6 @@ export default function About() {
             <p className="text-about">
                 I'm currently studying mechatronics engineering (sophomore) in <i>Izmir University of Economics</i>.
             </p>
-            <p className="text-about">
-                Feel free to reach out to me if you want to chat or work together on something cool.
-            </p>
         </div>
     )
 }
