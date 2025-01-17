@@ -32,7 +32,7 @@ heart:hover {
 }
 
 heart:active {
-  margin-top: -12.5px;
+  margin-top: -4px;
   font-size: 40px;
   transition: 0.3s;
   margin-inline: 5px;
@@ -51,6 +51,7 @@ heart:active {
 
 .App-scale {
   display: flex;
+  flex-direction: column;
   perspective: 800px;
 }
 
