@@ -32,8 +32,10 @@ heart:hover {
 }
 
 heart:active {
+  margin-top: -12.5px;
   font-size: 40px;
   transition: 0.3s;
+  margin-inline: 5px;
 }
 
 .App {
