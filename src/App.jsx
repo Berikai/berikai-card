@@ -22,13 +22,15 @@ export default function App() {
     return (
         <div className="App">
         <Modal />
-            <div id={"Card"} className="Card">
-                <Switch />
-                <Navbar />
-                <Header />
-                <About />
-                <AboutExtra />
-                <Footer />
+            <div className="App-scale">
+                <div id={"Card"} className="Card">
+                    <Switch />
+                    <Navbar />
+                    <Header />
+                    <About />
+                    <AboutExtra />
+                    <Footer />
+                </div>
             </div>
         </div>
     )
