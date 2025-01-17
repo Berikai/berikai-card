@@ -14,10 +14,12 @@ const hideModal = () => {
 
 export default function Modal() {
     return (
-        <div className="modal dark" onClick={() => hideModal()}>
+        <div className="modal" onClick={() => hideModal()}>
             <div className="modal-content"> 
-                <text className={"dark"}>The page you are trying to view is currently in development.</text>
-                <text className={"dark"}>Thank you for your patience.</text>
+                <div className="modal-box dark">
+                    <text className={"dark"}>The page you are trying to view is currently in development.</text>
+                    <text className={"dark"}>Thank you for your patience.</text>
+                </div>
             </div>
         </div>
     )
