@@ -15,6 +15,10 @@ const showSwitch = (switchbox, slider) => (e) => {
     }
 }
 
+const hideSwitch = (switchbox) => () => {
+    switchbox.style.opacity = "0";
+}
+
 export const cardFollowCursor3D = (card) => (e) => {
     const angleX = (window.innerWidth / 2 - e.pageX) / 10;
     const angleY = (window.innerHeight / 2 - e.pageY) / 20;
@@ -35,6 +39,7 @@ const cardResetState3D = (card, switchbox) => () => {
 
 export const callbacks = {
     showSwitch: null,
+    hideSwitch: null,
     cardFollowCursor3D: null,
     cardResetState3D: null
 };
@@ -45,8 +50,10 @@ export const SwitchListener = () => {
     const slider = document.querySelector(".slider");
 
     callbacks.showSwitch = showSwitch(switchbox, slider);
+    callbacks.hideSwitch = hideSwitch(switchbox);
 
     card.addEventListener("mousemove", callbacks.showSwitch, false);
+    card.addEventListener("mouseout", callbacks.hideSwitch, false);
 }
 
 export const Card3D = () => {
