@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgba(255, 255, 255, 1);
 }
@@ -23,29 +23,33 @@ heart {
   font-size: 12px;
   transition: 0.5s;
   cursor: pointer;
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
 heart:hover {
-  font-size: 50px;
-  margin-inline: 15px;
+  font-size: 30px;
+  margin-inline: 10px;
 }
 
 heart:active {
-  font-size: 70px;
+  font-size: 40px;
   transition: 0.3s;
 }
 
 .App {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
-  perspective: 800px;
+}
 
+.App-scale {
+  display: flex;
+  perspective: 800px;
 }
 
 @keyframes CardFrame {
@@ -60,7 +64,8 @@ heart:active {
   display: flex;
   flex-direction: column;
   position: relative;
-  min-width: 400px;
+  width: 400px;
+  height: 640px;
   user-select: none;
   padding-left: 40px;
   padding-right: 40px;
@@ -97,19 +102,21 @@ heart:active {
 }
 
 .App-about-extra {
-  position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 315px;
-  left: 75px;
-  width: 250px;
+  margin: auto;
+  margin-top: -60px;
+  width: 300px;
   height: 300px;
+  min-width: 300px;
+  min-height: 300px;
   /*border: #000000 dotted 2px;*/
   font-size: 12px;
-  writing-mode: vertical-rl;
+  transform: rotate(90deg); 
   z-index: -1;
+  gap: 7px;
 }
 
 @keyframes ProfileFrame {
@@ -364,11 +371,21 @@ heart:active {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #fefefe;
+  align-items: center;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 15px;
-  padding: 50px;
   border-radius: 15px 70px 15px 70px;
   text-align: center;
+  overflow: hidden;
+}
+
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #e4e4e4;
+  padding: 50px;
 }
 
 .switch {
@@ -439,20 +456,28 @@ input:checked + .slider:before {
     transition: 0.2s ease;
   }
 
+  .App-header.about-open {
+    position: absolute;
+    opacity: 0;
+  }
+
   .App-about-extra.about-open {
-    position:relative;
-    top: 40px;
-    left: -230px;
+    margin: auto;
+  }
+
+  .App-footer.about-open {
+    display: none;
   }
 
   .Card.about-open {
-    margin-bottom: 250px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
     width: 450px;
     height: 450px;
+    min-width: 450px;
+    min-height: 450px;
     display: flex;
     flex-direction: row;
   }
@@ -465,7 +490,6 @@ input:checked + .slider:before {
   .pp_logo.about-open {
     transition:none;
     position: absolute;
-    opacity: 0;
     pointer-events: none;
   }
 
@@ -480,28 +504,36 @@ input:checked + .slider:before {
 }
 
 @media screen and (max-height: 700px) {
-  .App {
+  .App-scale {
     transform: scale(0.85) translate(0, 0px)  !important;
     transition: scale 0.2 ease;
   }
 }
 
 @media screen and (max-height: 610px) {
-  .App {
-    transform: scale(0.7) translate(0, -50px)  !important;
+  .App-scale {
+    transform: scale(0.7) translate(0, -0px)  !important;
     transition: scale 0.2 ease;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .App {
-    transform: scale(0.7) translate(0, -50px)  !important;
+  .App-scale {
+    transform: scale(0.7) translate(0, -0px)  !important;
     transition: scale 0.2 ease;
   }
-  .App-about-extra {
-    top: 315px;
-    left: 75px;
-    width: 250px;
-    height: 330px;
+}
+
+@media screen and (max-height: 280px) {
+  .App-scale {
+    transform: scale(0.5) translate(0, -0px)  !important;
+    transition: scale 0.2 ease;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .App-scale {
+    transform: scale(0.5) translate(0, -0px)  !important;
+    transition: scale 0.2 ease;
   }
 }

@@ -11,6 +11,7 @@ const showAboutPage = () => {
     const aboutNav = document.getElementById("about-nav");
     const username = document.querySelector(".username");
     const appAbout = document.querySelector(".App-about");
+    const appHeader = document.querySelector(".App-header");
     const appFooter = document.querySelector(".App-footer");
     const appAboutExtra = document.querySelector(".App-about-extra");
     const navbar = document.querySelector(".navbar");
@@ -23,11 +24,21 @@ const showAboutPage = () => {
     cardStyle.rotation = -90;
 
     app.classList.add("about-open");
+    appAbout.classList.add("about-open");
+    appHeader.classList.add("about-open");
+    appFooter.classList.add("about-open");
     appAboutExtra.classList.add("about-open");
     navbar.classList.add("about-open");
     card.classList.add("about-open");
     pp.classList.add("about-open");
     switchbox.classList.add("about-open");
+
+    appAbout.style.display = "none";
+    appAboutExtra.style.display = "flex";
+
+    if(window.innerWidth > 678) {
+        pp.style.transition = 'ease 0.2s';
+    } 
 
     card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
     card.style.transform = "rotateZ(-90deg)";
@@ -76,6 +87,7 @@ const hideAboutPage = () => {
     const aboutNav = document.getElementById("about-nav");
     const username = document.querySelector(".username");
     const appAbout = document.querySelector(".App-about");
+    const appHeader = document.querySelector(".App-header");
     const appFooter = document.querySelector(".App-footer");
     const appAboutExtra = document.querySelector(".App-about-extra");
     const navbar = document.querySelector(".navbar");
@@ -88,11 +100,23 @@ const hideAboutPage = () => {
     cardStyle.rotation = 0;
 
     app.classList.remove("about-open");
+    appAbout.classList.remove("about-open");
+    appHeader.classList.remove("about-open");
+    appFooter.classList.remove("about-open");
     appAboutExtra.classList.remove("about-open");
     navbar.classList.remove("about-open");
     card.classList.remove("about-open");
     pp.classList.remove("about-open");
     switchbox.classList.remove("about-open");
+
+    appAbout.style.display = "block";
+    appAboutExtra.style.display = "none";
+
+    if(window.innerWidth <= 678) {
+        pp.style.transition = 'none';
+    } else {
+        pp.style.transition = 'ease 0.2s';
+    }
 
     card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
     card.style.transform = "rotateZ(0deg)";
