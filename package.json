@@ -12,7 +12,7 @@
   },
   "scripts": {
     "deploy": "gh-pages -d dist --cname berikai.dev",
-    "start": "npx vite --host",
+    "dev": "npx vite --host",
     "build": "npx vite build"
   },
   "devDependencies": {
