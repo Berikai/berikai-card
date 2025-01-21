@@ -38,7 +38,7 @@ export default function Portfolio() {
                     <img className="portfolio-img" width={68} src="https://cdn.discordapp.com/attachments/935545276008116276/1331266107226456086/ezgif-2-6735a308d0.gif?ex=6790fdad&is=678fac2d&hm=3532848315807f625c44ab7912f6d942c7daf1028d53abe87b09e61c92ba1ef1&"></img>
                     <div className="portfolio-element-content dark">
                         <div className="portfolio-element-title dark">Pixbud</div>
-                        <div className="portfolio-element-info dark">Your desktop buddy, loves to hang around on the rooftops of your application windows.</div>
+                        <div className="portfolio-element-info dark">Your desktop buddy, loves to hang around on the rooftops of your application windows</div>
                     </div>
                 </div>
                 <div className="portfolio-element">
