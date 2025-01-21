@@ -15,7 +15,10 @@ export default function Spotify() {
         fetch('https://api.berikai.dev/spotify/current')
         .then((res) => res.json())
         .then((data) => {
-            if(data.error == "Not authenticated" || data.error == "No track playing") {
+            if(data.error) {
+                if(data.error != "Not authenticated" || data.error != "No track playing" ) {
+                    console.error('Spotify API Error: ' + data.error);
+                }
                 spotify_container.style.opacity = 0;
                 spotify.style.opacity = 0;
                 spotify.style.pointerEvents = 'none';
