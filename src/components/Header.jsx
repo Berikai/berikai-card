@@ -50,7 +50,13 @@ export default function Header() {
             <img
                 className="pp_logo" 
                 src="https://avatars.githubusercontent.com/u/18515671?v=4" 
-                alt="Berikai" />
+                alt="Berikai" 
+                onLoad={() => {
+                    document.querySelector(".App").style.opacity = 1;
+                    document.querySelector(".Card").style.animation = "CardFrame 2s ease-in-out";
+                    document.querySelector(".pp_logo").style.animation = "ProfileFrame 2s ease-in-out";
+                }}    
+                />
                 <p className="threeD-info">Tap to switch 3D</p>
             </a></p>
             <div className="username">Berikai<div className="aka">also known as Verdant</div></div>
