@@ -121,13 +121,13 @@ export const hidePortfolioPage = (delay) => {
         portfolioNav.children[0].textContent = "Portfolio";
 
         portfolioNav.onmouseover = () => {
-            aboutNav.style.backgroundColor = "#0000000D";
-            aboutNav.style.color = "rgb(0, 0,0, 0.6)";
+            portfolioNav.style.backgroundColor = "#0000000D";
+            portfolioNav.style.color = "rgb(0, 0,0, 0.6)";
         };
-    
+        
         portfolioNav.onmouseout = () => {
-            aboutNav.style.backgroundColor = "#00000008";
-            aboutNav.style.color = "rgb(0, 0,0, 0.2)";
+            portfolioNav.style.backgroundColor = "#00000008";
+            portfolioNav.style.color = "rgb(0, 0,0, 0.2)";
         };
     
         appAbout.style.display = "block";
