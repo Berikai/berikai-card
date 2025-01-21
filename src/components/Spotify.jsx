@@ -5,27 +5,28 @@ export default function Spotify() {
     const [currentSong, setCurrentSong] = useState({});
     const [progressMs, setProgressMs] = useState(0);
 
-    let counterMs = null;
+    let counterMs = [];
 
-    const fetchCurrentSong = (removeMs) => {
+    const fetchCurrentSong = () => {
         const spotify = document.querySelector('.spotify');
         const spotify_panel = document.querySelector('.spotify-panel');
+        const spotify_container = document.querySelector('.spotify-container');
 
         fetch('https://api.berikai.dev/spotify/current')
         .then((res) => res.json())
         .then((data) => {
             if(data.error == "Not authenticated" || data.error == "No track playing") {
+                spotify_container.style.opacity = 0;
                 spotify.style.opacity = 0;
                 spotify.style.pointerEvents = 'none';
                 return;
             }
 
+            spotify_container.style.opacity = 1;
             spotify.style.opacity = 1;
             spotify.style.pointerEvents = 'all';
 
-            if(removeMs) {
-                clearInterval(removeMs);
-            }
+            counterMs.forEach(removeMs => clearInterval(removeMs));
             
             _currentSong = data;
             setCurrentSong(data);
@@ -36,18 +37,19 @@ export default function Spotify() {
             }
             setProgressMs(data.progress_ms);
             
-            counterMs = setInterval(() => {
-                const savedCounterMs = counterMs;
+            const newCounterMs = setInterval(() => {
                 setProgressMs((prevProgressMs) => {
                     const newProgressMs = prevProgressMs + 1000;
                     if (newProgressMs >= data.item?.duration_ms) {
-                        clearInterval(savedCounterMs);
+                        counterMs.forEach(removeMs => clearInterval(removeMs));
                         fetchCurrentSong();
                         console.log('Song ended, fetching new song...');
                     }
                     return newProgressMs;
                 });
             }, 1000);
+
+            counterMs.push(newCounterMs);
         });
     }
 
@@ -61,7 +63,7 @@ export default function Spotify() {
 
             const generalInterval = setInterval(() => {
                 console.log('Fetching current playing song...');
-                fetchCurrentSong(counterMs);
+                fetchCurrentSong();
             }, 20000);
 
             spotify.addEventListener('mousemove', () => {
