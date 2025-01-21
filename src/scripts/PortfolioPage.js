@@ -1,11 +1,13 @@
 import { hideAboutPage, aboutPageState } from "./AboutPage.js";
+import { Card3D, DisableCard3D } from "./Card3D.js";
 
 export const portfolioPageState = {
     show: false,
-    card3D: false
+    card3D: false,
+    onAbout: false
 }
 
-export const showPortfolioPage = (delay) => {
+export const showPortfolioPage = (delay, rotate) => {
     const card = document.querySelector(".Card");
     const appAbout = document.querySelector(".App-about");
     const appHeader = document.querySelector(".App-header");
@@ -13,10 +15,6 @@ export const showPortfolioPage = (delay) => {
     const appPortfolio = document.querySelector(".App-portfolio");
     const portfolioNav = document.getElementById("portfolio-nav");
     const pp = document.querySelector(".pp_logo");
-
-    if (portfolioPageState.card3D) {
-        delay = false;
-    }
 
     if (delay) {
         setTimeout(() => {
@@ -68,13 +66,29 @@ export const showPortfolioPage = (delay) => {
         pp.style.pointerEvents = "none";
     }
 
-    card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
-    if (!portfolioPageState.card3D) {
-        card.style.transform = "rotateX(360deg)";
+    if(rotate) {
+        if(portfolioPageState.onAbout) {
+            card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
+            card.style.transform = "rotateX(0deg)";
+            portfolioPageState.onAbout = false;
+        } else {
+            card.style.transitionProperty = 'none';
+            card.style.transform = "rotateX(360deg)";
+            setTimeout(() => {
+                card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
+                card.style.transform = "rotateX(0deg)";
+                if(portfolioPageState.card3D) {
+                    DisableCard3D();
+                    setTimeout(() => {
+                        Card3D();
+                    }, 490);
+                }
+            }, 10);
+        }
     }
 }
 
-export const hidePortfolioPage = (delay) => {
+export const hidePortfolioPage = (delay, rotate) => {
     const card = document.querySelector(".Card");
     const appAbout = document.querySelector(".App-about");
     const appHeader = document.querySelector(".App-header");
@@ -82,10 +96,6 @@ export const hidePortfolioPage = (delay) => {
     const appPortfolio = document.querySelector(".App-portfolio");
     const portfolioNav = document.getElementById("portfolio-nav");
     const pp = document.querySelector(".pp_logo");
-
-    if (portfolioPageState.card3D) {
-        delay = false;
-    }
 
     if (delay) {
         setTimeout(() => {
@@ -137,9 +147,25 @@ export const hidePortfolioPage = (delay) => {
         pp.style.pointerEvents = "all";
     }
 
-    card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
-    if (!portfolioPageState.card3D) {
-        card.style.transform = "rotateX(0deg)";
+    if(rotate) {
+        if(portfolioPageState.onAbout) {
+            card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
+            card.style.transform = "rotateX(0deg)";
+            portfolioPageState.onAbout = false;
+        } else {
+            card.style.transitionProperty = 'none';
+            card.style.transform = "rotateX(360deg)";
+            setTimeout(() => {
+                card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
+                card.style.transform = "rotateX(0deg)";
+                if(portfolioPageState.card3D) {
+                    DisableCard3D();
+                    setTimeout(() => {
+                        Card3D();
+                    }, 490);
+                }
+            }, 10);
+        }
     }
 }
 
@@ -147,6 +173,7 @@ export const PortfolioPage = () => {
     let willBeDelayed = true;
 
     if(aboutPageState.show) {
+        portfolioPageState.onAbout = true;
         aboutPageState.show = false;
         willBeDelayed = false;
         hideAboutPage();
@@ -154,8 +181,8 @@ export const PortfolioPage = () => {
 
     portfolioPageState.show = !portfolioPageState.show;
     if(portfolioPageState.show) {
-        showPortfolioPage(willBeDelayed);
+        showPortfolioPage(willBeDelayed, true);
     } else {
-        hidePortfolioPage(willBeDelayed);
+        hidePortfolioPage(willBeDelayed, true);
     }
 }

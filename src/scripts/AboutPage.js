@@ -172,7 +172,7 @@ export const hideAboutPage = () => {
 export const AboutPage = () => {
     if(portfolioPageState.show) {
         portfolioPageState.show = false;
-        hidePortfolioPage(false);
+        hidePortfolioPage(false, false);
     }
 
     aboutPageState.show = !aboutPageState.show;
