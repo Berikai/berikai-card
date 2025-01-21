@@ -7,6 +7,7 @@ export default function Header() {
     
     useLayoutEffect(() => {
         const pp = document.getElementById("pp");
+        const ppLogo = document.querySelector(".pp_logo");
         const text3d = document.querySelector(".threeD-info");
         pp.addEventListener("mouseleave" , () => {
             text3d.style.opacity = "0";
@@ -14,6 +15,7 @@ export default function Header() {
         });
 
         pp.addEventListener("mouseenter" , () => {
+            ppLogo.style.transition = 'ease 0.2s';
             text3d.style.opacity = "1";
             text3d.style.scale = "1.05";
         });
