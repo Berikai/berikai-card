@@ -1,6 +1,7 @@
 import React from 'preact/compat';
 import NavButton from './NavButton';
 import { AboutPage } from '../scripts/AboutPage';
+import { PortfolioPage } from '../scripts/PortfolioPage';
 import { showModal } from './Modal';
 import { FontAwesomeIcon } from '@aduh95/preact-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
@@ -14,7 +15,7 @@ export default function Navbar() {
             </div>
             <div className="navbar-half2">
                 <NavButton link text={(<><FontAwesomeIcon className="icon-nav" size='xs' icon={faArrowUpRightFromSquare}/><>Console</></>)} rotation={"lr"} href={"https://console.berikai.dev"}/>
-                <NavButton text={"Portfolio"} rotation={"lr"} action={() => showModal()}/>
+                <NavButton id={"portfolio-nav"} text={"Portfolio"} rotation={"lr"} action={() => PortfolioPage()}/>
             </div>
         </nav>
     )

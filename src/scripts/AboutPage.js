@@ -1,10 +1,11 @@
 import { cardStyle } from './Card3D.js';
+import { hidePortfolioPage, portfolioPageState } from "./PortfolioPage.js";
 
-const aboutPageState = {
+export const aboutPageState = {
     show: false
 }
 
-const showAboutPage = () => {
+export const showAboutPage = () => {
     const card = document.getElementById("Card");
     const pp = document.querySelector(".pp_logo"); 
     const switchbox = document.getElementById("switch");
@@ -17,6 +18,8 @@ const showAboutPage = () => {
     const navbar = document.querySelector(".navbar");
     const app = document.querySelector(".App");
     const threeDInfo = document.querySelector(".threeD-info");
+    const spotify = document.querySelector("#spotify-img");
+    const spotifyPanel = document.querySelector(".spotify-panel");
 
     const navIcons = document.querySelectorAll(".icon-nav");
     const upperButtons = document.querySelectorAll(".rotate-counterclockwise");
@@ -33,6 +36,10 @@ const showAboutPage = () => {
     pp.classList.add("about-open");
     switchbox.classList.add("about-open");
 
+    spotify.style.transform = "rotate(90deg)";
+    spotifyPanel.style.transform = "rotate(90deg)";
+
+    appHeader.style.display = "block";
     appAbout.style.display = "none";
     appAboutExtra.style.display = "flex";
 
@@ -80,7 +87,7 @@ const showAboutPage = () => {
 
 }
 
-const hideAboutPage = () => {
+export const hideAboutPage = () => {
     const card = document.getElementById("Card");
     const pp = document.querySelector(".pp_logo"); 
     const switchbox = document.getElementById("switch");
@@ -93,6 +100,8 @@ const hideAboutPage = () => {
     const navbar = document.querySelector(".navbar");
     const app = document.querySelector(".App");
     const threeDInfo = document.querySelector(".threeD-info");
+    const spotify = document.querySelector("#spotify-img");
+    const spotifyPanel = document.querySelector(".spotify-panel");
 
     const navIcons = document.querySelectorAll(".icon-nav");
     const upperButtons = document.querySelectorAll(".rotated-about");
@@ -108,6 +117,9 @@ const hideAboutPage = () => {
     card.classList.remove("about-open");
     pp.classList.remove("about-open");
     switchbox.classList.remove("about-open");
+
+    spotify.style.transform = "rotate(0deg)";
+    spotifyPanel.style.transform = "rotate(0deg)";
 
     appAbout.style.display = "block";
     appAboutExtra.style.display = "none";
@@ -158,6 +170,11 @@ const hideAboutPage = () => {
 }
 
 export const AboutPage = () => {
+    if(portfolioPageState.show) {
+        portfolioPageState.show = false;
+        hidePortfolioPage(false);
+    }
+
     aboutPageState.show = !aboutPageState.show;
     if(aboutPageState.show) {
         showAboutPage();

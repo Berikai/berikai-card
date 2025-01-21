@@ -1,3 +1,5 @@
+import { portfolioPageState } from "./PortfolioPage";
+
 export const cardStyle = {
     rotation: 0
 }
@@ -25,7 +27,7 @@ export const cardFollowCursor3D = (card) => (e) => {
     const angleZ = cardStyle.rotation;
     
     card.style.transition = `transform 0.1s ease, box-shadow 0.1s ease, border-radius 0.5s ease`
-    card.style.transform = `rotateZ(${angleZ}deg) rotateY(${angleZ == 0 ? angleX : angleY * -1}deg) rotateX(${angleZ == 0 ? angleY * -1 : angleX * -1}deg)`;
+    card.style.transform = `rotateZ(${angleZ}deg) rotateY(${angleZ == 0 ? angleX : angleY * -1}deg) rotateX(${(angleZ == 0 ? angleY * -1 : angleX * -1)}deg)`;
     card.style.boxShadow = `${angleZ == 0 ? angleX * -1 : angleY}px ${angleZ == 0 ? angleY * -1 : angleX * -1}px 30px rgba(0, 0, 0, 0.4) `;
 }
 
@@ -65,6 +67,8 @@ export const Card3D = () => {
 
     card.addEventListener("mousemove", callbacks.cardFollowCursor3D, false);
     card.addEventListener("mouseout", callbacks.cardResetState3D, false);
+
+    portfolioPageState.card3D = true;
 }
 
 export const DisableCard3D = () => {
@@ -74,4 +78,6 @@ export const DisableCard3D = () => {
     card.removeEventListener("mouseout", callbacks.cardResetState3D, false);
 
     callbacks.cardResetState3D();
+
+    portfolioPageState.card3D = false;
 }

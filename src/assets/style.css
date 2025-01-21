@@ -32,10 +32,8 @@ heart:hover {
 }
 
 heart:active {
-  margin-top: -4px;
   font-size: 40px;
   transition: 0.3s;
-  margin-inline: 5px;
 }
 
 .App {
@@ -64,8 +62,6 @@ heart:active {
 }
 
 .Card {
-  display: flex;
-  flex-direction: column;
   position: relative;
   width: 400px;
   height: 640px;
@@ -77,11 +73,12 @@ heart:active {
   margin: auto;
   transition: ease 0.1s;
   transform: rotate(0deg);
-  animation: CardFrame 2s ease-in-out;
+  /*animation: CardFrame 2s ease-in-out;*/ /* We will start the animation when the pp image loaded */
   animation-timing-function: forwards;
   border-radius: 15px 70px 15px 70px;
   background-color: rgba(255, 255, 255, 1);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 15px;
+  overflow: hidden;
 }
 
 .App-header {
@@ -97,11 +94,14 @@ heart:active {
 }
 
 .App-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 2px;
   margin: auto;
   text-align: center;
-  width: fit-content;  
-  bottom: 0px; 
+  width: 100%;  
+  height: 45px;
 }
 
 .App-about-extra {
@@ -122,6 +122,90 @@ heart:active {
   gap: 10px;
 }
 
+.App-portfolio {
+  display: none;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 0px;
+  width: 300px;
+  height: 520px;
+  min-width: 300px;
+  min-height: 520px;
+  /*border: #000000 dotted 2px;*/
+  font-size: 12px;
+  z-index: -1;
+  gap: 10px;
+  padding: 15px;
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  gap: 18px;
+}
+
+
+.portfolio-element {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+  width: 100%;
+  height: 68px;
+  border-radius: 5px 20px 5px 20px;
+  overflow: hidden;
+}
+
+.portfolio-element-overlay {
+  opacity: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #0000001D;
+  z-index: 1;
+  transition: ease 0.2s;
+}
+
+.portfolio-element-overlay:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.portfolio-element-content {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 68px;
+  padding-top: 6px;
+  padding-left: 10px;
+  padding-right: 6px;
+  background-color: #00000008;
+}
+
+.portfolio-element-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.portfolio-element-info {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.portfolio-img {
+  object-fit: cover;
+  transition: 0.2s ease;
+}
+
 @keyframes ProfileFrame {
   0% {border-radius: 70px 15px 70px 15px;box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px;}
   30% {border-radius: 70px 15px 70px 15px;box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px;}
@@ -137,7 +221,7 @@ heart:active {
   box-shadow: #000000 0px 0px 10px;
   transition: ease 0.2s;
   cursor: pointer;
-  animation: ProfileFrame 2s ease-in-out;
+  /*animation: ProfileFrame 2s ease-in-out;*/ /* We will start the animation when the pp image loaded */
 }
 
 .pp_logo:hover {
@@ -153,7 +237,7 @@ heart:active {
 }
 
 .title-about {
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 0px;
   font-size: 28px;
   font-weight: normal;
   text-align: center;
@@ -162,7 +246,7 @@ heart:active {
 }
 
 .text-about {
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 0px;
   font-weight: normal;
   font-size: 13px;
   text-align: center;
@@ -391,6 +475,98 @@ heart:active {
   padding: 50px;
 }
 
+@keyframes spotify {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+
+@keyframes shaky-ring {
+  0% { transform: rotate(0deg) scale(1); }
+  5% { transform: rotate(10deg) scale(1); }
+  10% { transform: rotate(-10deg) scale(1); }
+  15% { transform: rotate(10deg) scale(1); }
+  20% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(0deg) scale(1); }
+  60% { transform: rotate(0deg) scale(1); }
+  70% { transform: rotate(0deg) scale(1); }
+  80% { transform: rotate(0deg) scale(1); }
+  90% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+#spotify-img {
+  transform-origin: center;
+}
+
+.spotify-container {
+  transition: 2s ease;
+}
+
+.spotify {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 8px;
+  right: 12px;
+  transition: ease 0.5s;
+  opacity: 0;
+  pointer-events: none;
+  animation: shaky-ring 2s infinite;
+}
+
+.spotify-panel {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 220px;
+  height: 40px;
+  transition: ease 0.2s;
+  transform-origin: 201px 20px;
+  /*box-shadow: #57ff8f 0px 0px 2px;*/
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0;
+}
+
+.spotify-artwork {
+  /*border-radius: 25px 5px 5px 25px;*/
+  border-radius: 10px 5px 10px 5px;
+  background-color: #00000008;
+  margin-right: 6px;
+}
+
+.spotify-artwork-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.spotify-panel-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-left: 4px;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 15px 25px 25px 10px;
+  /*background-color: #00fd9c;*/
+}
+
+.spotify-info {
+  display: flex;
+  height: 100%;
+  width: 140px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+
+.text-spotify {
+  font-size: 9px;
+}
+
 .switch {
   position: relative;
   top: -15px;
@@ -460,16 +636,16 @@ input:checked + .slider:before {
   }
 
   .App-header.about-open {
-    position: absolute;
-    opacity: 0;
+    position: absolute !important;
+    opacity: 0 !important;
   }
 
   .App-about-extra.about-open {
-    margin: auto;
+    margin: auto !important;
   }
 
   .App-footer.about-open {
-    display: none;
+    display: none !important;
   }
 
   .Card.about-open {
@@ -477,10 +653,10 @@ input:checked + .slider:before {
     padding-right: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
-    width: 450px;
-    height: 450px;
-    min-width: 450px;
-    min-height: 450px;
+    width: 440px;
+    height: 440px;
+    min-width: 440px;
+    min-height: 440px;
     display: flex;
     flex-direction: row;
   }
@@ -493,7 +669,7 @@ input:checked + .slider:before {
   .pp_logo.about-open {
     transition:none;
     position: absolute;
-    pointer-events: none;
+    pointer-events: none !important;
   }
 
   .switch.about-open {
@@ -503,6 +679,10 @@ input:checked + .slider:before {
     width: 30px;
     height: 17px;
     transform-origin: 8px;
+  }
+
+  .spotify-panel {
+    transform: rotate(0deg) !important;
   }
 }
 
@@ -520,7 +700,7 @@ input:checked + .slider:before {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 360px) {
   .App-scale {
     transform: scale(0.7) translate(0, -0px)  !important;
     transition: scale 0.2 ease;
