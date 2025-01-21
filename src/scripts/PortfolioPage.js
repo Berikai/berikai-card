@@ -16,6 +16,8 @@ export const showPortfolioPage = (delay, rotate) => {
     const portfolioNav = document.getElementById("portfolio-nav");
     const pp = document.querySelector(".pp_logo");
 
+    pp.style.transition = 'none';
+
     if (delay) {
         setTimeout(() => {
             appPortfolio.style.opacity = "1";
@@ -96,6 +98,10 @@ export const hidePortfolioPage = (delay, rotate) => {
     const appPortfolio = document.querySelector(".App-portfolio");
     const portfolioNav = document.getElementById("portfolio-nav");
     const pp = document.querySelector(".pp_logo");
+
+    if(rotate) {
+        pp.style.transition = 'ease 0.2s';
+    }
 
     if (delay) {
         setTimeout(() => {

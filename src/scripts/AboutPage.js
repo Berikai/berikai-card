@@ -43,10 +43,6 @@ export const showAboutPage = () => {
     appAbout.style.display = "none";
     appAboutExtra.style.display = "flex";
 
-    if(window.innerWidth > 678) {
-        pp.style.transition = 'ease 0.2s';
-    } 
-
     card.style.transition = "transform 0.5s ease, box-shadow 0.5s ease, border-radius 0.5s ease";
     card.style.transform = "rotateZ(-90deg)";
     pp.style.borderRadius = "70px 15px 70px 15px";
