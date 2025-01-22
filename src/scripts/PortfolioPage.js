@@ -83,9 +83,9 @@ export const showPortfolioPage = (delay, rotate) => {
                     DisableCard3D();
                     setTimeout(() => {
                         Card3D();
-                    }, 490);
+                    }, 450);
                 }
-            }, 10);
+            }, 50);
         }
     }
 }
@@ -168,9 +168,9 @@ export const hidePortfolioPage = (delay, rotate) => {
                     DisableCard3D();
                     setTimeout(() => {
                         Card3D();
-                    }, 490);
+                    }, 450);
                 }
-            }, 10);
+            }, 50);
         }
     }
 }
