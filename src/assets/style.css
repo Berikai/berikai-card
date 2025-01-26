@@ -151,11 +151,17 @@ heart:active {
   position: relative;
   display: flex;
   flex-direction: row;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px;
   width: 100%;
   height: 68px;
   border-radius: 5px 20px 5px 20px;
   overflow: hidden;
+  transition: ease 0.2s;
+}
+
+.portfolio-element:hover {
+  transform: scale(1.07);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
 }
 
 .portfolio-element-overlay {
@@ -169,7 +175,7 @@ heart:active {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #0000001D;
+  /*background-color: #0000001D;*/
   z-index: 1;
   transition: ease 0.2s;
 }
